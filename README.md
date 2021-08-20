@@ -23,10 +23,10 @@ TODO -
 ### Naming conventions:
 
  - An image with N copies: `{image-name}_{N}.{jpg|png|gif}`  
-Example: `_2.jpg`
- - An image that belongs in a deck with N copies in the deck: `deck_{deck-name}_{image-name}_{X}`  
-Example: `deck_Vivian (Blue)_move-1_1`
- - counter_imagename_STARTINGVALUE
+Example: `meeple-red_2.jpg`
+ - An image that belongs in a deck with N copies in the deck: `deck-{deck-name}_{image-name}_{N}.{jpg|png|gif}`  
+Example: `deck-Vivian (Blue)_move-1_1`
+ - Image to be used as a counter: `counter-{imagename}_{startingValue}.{jpg|png|gif}`
 
 ## Resources
 
