@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 
@@ -9,8 +8,8 @@ namespace VorpalJsonCore
     {
         public static string BuildJson(AssetCollection assets, string vorpalProjectName)
         {
-            // todo - storage path by device type
-            var fullStoragePath = Constants.DeviceStoragePath + vorpalProjectName;
+            // TODO - storage path by device type
+            var fullStoragePath = Constants.AndroidDeviceStoragePath + vorpalProjectName;
 
             var root = new Root
             {
@@ -27,11 +26,7 @@ namespace VorpalJsonCore
             root.ScannedImageMetaData =
                 assets.ScannedImages.ToDictionary(imgMetaData => imgMetaData.ImageID, imgMetaData => imgMetaData);
 
-            root.ImageLibrary = new Dictionary<string, short>();
-            // todo - get rid of kvp
-            assets.ImageLibrary.ForEach(kvp => {
-                root.ImageLibrary.Add(kvp.Key, kvp.Value);
-            });
+            root.ImageLibrary = assets.ImageLibrary.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 
             root.Decks = assets.DeckList.ToDictionary(deck => deck.Id, deck => deck);
 

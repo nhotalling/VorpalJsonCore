@@ -25,7 +25,7 @@ namespace VorpalJsonConsole
             var assets = fs.ProcessFiles(files);
             var jsonOutput = VorpalJsonBuilder.BuildJson(assets, projectName);
 
-            fs.SaveFile(dir, jsonOutput);
+            fs.SaveGameDataFile(dir, jsonOutput);
 
             Console.WriteLine("gamedata.json created in " + dir);
             Console.ReadKey();

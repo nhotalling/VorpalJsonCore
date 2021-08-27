@@ -14,9 +14,9 @@ namespace VorpalJsonCore
 
     public static class Constants
     {
-        // TODO - This path is going to change for Android 11
-        // Will need to get iOS path as well
-        public static string DeviceStoragePath => "/storage/emulated/0/Vorpal Board/CardCache/";
+        // Legacy Android path
+        //public static string DeviceStoragePath => "/storage/emulated/0/Vorpal Board/CardCache/";
+        public static string AndroidDeviceStoragePath => "/storage/emulated/0/Android/data/com.Vorpal/files/Documents/games/";
     }
 
     /// <summary>
@@ -61,7 +61,10 @@ namespace VorpalJsonCore
         /// Empty object unless counter
         /// </summary>
         public object PropBag { get; set; } = new();
-        public bool CloudFile { get; set; } = true;
+        /// <summary>
+        /// Indicates if the image still needs to be uploaded to the cloud from the device
+        /// </summary>
+        public bool CloudFile { get; set; } = false;
         /// <summary>
         /// False = drag and drop (uploaded via browser)
         /// </summary>
@@ -80,6 +83,7 @@ namespace VorpalJsonCore
     public class Root
     {
         public string StorageAbsolutePath { get; set; }
+        //public string Id => Guid.NewGuid().ToString();
         public string Name { get; set; }
         // "2020-08-12T19:26:58.756746-05:00"
         public string Date { get; set; }
@@ -95,6 +99,11 @@ namespace VorpalJsonCore
         public Dictionary<string, short> ImageLibrary { get; set; }
 
         public Dictionary<string, Deck> Decks { get; set; }
+        
+        /// <summary>
+        /// 0 normal, 1 set
+        /// </summary>
+        public short Type { get; set; } = 0;
     }
 
     public class Position
@@ -141,12 +150,16 @@ namespace VorpalJsonCore
 
     public class Deck
     {
-        public string Id { get; set; } = Guid.NewGuid().ToString();
+        [JsonPropertyName("id")]
+        public string Id { get; } = Guid.NewGuid().ToString();
+        [JsonPropertyName("name")]
         public string Name { get; set; }
+        [JsonPropertyName("metaData")]
         public MetaData MetaData { get; set; } = new();
         /// <summary>
         /// list of kvp (cardId, emptyString), not an array like the others
         /// </summary>
+        [JsonPropertyName("cardIndex")]
         public Dictionary<string, string> CardIndex
         {
             get
@@ -154,16 +167,17 @@ namespace VorpalJsonCore
                 return CardStack.ToDictionary(card => card, x => string.Empty);
             }
         }
-
+        [JsonPropertyName("cardStack")]
         public List<string> CardStack { get; set; } = new();
+        [JsonPropertyName("discardStack")]
         public List<string> DiscardStack { get; set; } = new();
     }
 
     public enum AssetType
     {
         Counter,
-        Deck,
-        Misc
+        DeckItem,
+        Misc,
     }
 
 }

@@ -5,7 +5,7 @@ namespace VorpalJsonCore
 {
     public static class Utils
     {
-        public static MetaData CreateImageOrCounterMetaData(FileInfo src, Position pos, int imageNumber, int w, int h)
+        public static MetaData CreateImageOrCounterMetaData(FileInfo src, Position pos, int imageNumber, int w, int h, string backImagePath = null)
         {
             return new MetaData
             {
@@ -19,6 +19,7 @@ namespace VorpalJsonCore
                 ImageNumber = imageNumber,
                 ImageID = Guid.NewGuid().ToString(),
                 FilePath = src.Name,
+                BackPath = backImagePath,
                 Width = w,
                 Height = h,
                 FileType = src.Extension.Replace(".", "").ToUpper(),
