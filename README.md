@@ -48,6 +48,7 @@ This example follows the steps needed to sync from Google Drive to an Android de
 
 - .NET 5: https://dotnet.microsoft.com/download/dotnet/5.0
 - VorpalJsonCore console app (compiled version): http://bit.ly/VorpalJson
+- Slightly outdated Vorpal Json overview video: https://www.youtube.com/watch?v=DlpihhO-BEI
 - Node package 'ttsbackup' - Extract files from Tabletop Simulator games: https://www.npmjs.com/package/ttsbackup/v/0.0.7 
 - Autosync (aka DriveSync Pro) for Google Drive: https://play.google.com/store/apps/details?id=com.ttxapps.drivesync 
 - Image splitter: https://www.imgonline.com.ua/eng/cut-photo-into-pieces-result.php  
