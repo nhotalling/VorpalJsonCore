@@ -10,7 +10,7 @@ namespace VorpalJsonConsole
         {
             var fs = new FileService();
 
-            Console.WriteLine("Vorpal folder name (game name):");
+            Console.WriteLine("Vorpal Board game name (folder name on your phone that will hold the files):");
             var projectName = Console.ReadLine();
 
             Console.WriteLine("Local folder path with images:");
