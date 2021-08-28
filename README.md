@@ -1,5 +1,6 @@
 # VorpalJsonCore
-Cross platform app for turning images into a Vorpal Board `gamedata.json` file
+Cross platform app for turning images into a Vorpal Board `gamedata.json` file.
+Currently only supports creating gamedata for Android.
 
 ## Steps:
 - Gather game images. One option is pulling images from Tabletop Simulator.
@@ -27,11 +28,11 @@ Example: `deck-Vivian (Blue)_move-1_1`
  - Image to be used as a counter: `counter-{imagename}_{startingValue}.{jpg|png|gif}`
 
 ## Android/Google Drive Sync Example
-This example follows the steps needed to sync from Google Drive to an Android device using DriveSync Pro
-(I personally use the paid version).
+This example follows the steps needed to sync from Google Drive to an Android device using DriveSync Pro 
+(also called Autosync - I personally use the paid version).
 
 - Set up folder on Google Drive to hold all Vorpal Board game folders and files, e.g. `DriveSyncFiles`.
-- On DriveSync Pro, set up folder sync that connects your Google Drive `DriveSyncFiles`
+- On DriveSync Pro/Autosync, set up folder sync that connects your Google Drive `DriveSyncFiles`
   folder to `[Internal storage]/Android/data/com.Vorpal/files/Documents/games`. As you're clicking through 
   directories, you'll have to stop and grant permission to access the `data` folder. For settings, 
   I use Two-Way sync, uncheck all options, and enable folder pair.
@@ -46,10 +47,10 @@ This example follows the steps needed to sync from Google Drive to an Android de
 ## Resources
 
 - .NET 5: https://dotnet.microsoft.com/download/dotnet/5.0
+- VorpalJsonCore console app (compiled version): http://bit.ly/VorpalJson
 - Node package 'ttsbackup' - Extract files from Tabletop Simulator games: https://www.npmjs.com/package/ttsbackup/v/0.0.7 
 - Autosync (aka DriveSync Pro) for Google Drive: https://play.google.com/store/apps/details?id=com.ttxapps.drivesync 
 - Image splitter: https://www.imgonline.com.ua/eng/cut-photo-into-pieces-result.php  
-- VorpalJson - Compiled version: http://bit.ly/VorpalJson
 - Vorpal Board: https://www.vorpalboard.com/  
 - Restoration Games - Unmatched - Cobble & Fog: https://restorationgames.com/cobble-and-fog
 - Tabletop Simulator Workshop: https://steamcommunity.com/workshop/browse/?appid=286160
